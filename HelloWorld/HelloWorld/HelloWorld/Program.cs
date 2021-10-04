@@ -10,11 +10,13 @@ namespace HelloWorld
             Hello();
             int sum = Add(5, 3);
             Console.WriteLine(sum);
-            int sum2 = AddAndPrint(4, 9);
+            AddAndPrint(4, 9);
         }
 
         static int AddAndPrint(int a,int b)
         {
+            int sum = a + b;
+            Console.WriteLine($"vysledek souctu {a} + {b} = {sum}");
             return a + b;
         }
 
@@ -25,6 +27,7 @@ namespace HelloWorld
 
         static int Add(int a, int b)
         {
+            
             return a + b;
         }
     }
