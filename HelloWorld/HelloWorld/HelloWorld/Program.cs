@@ -8,13 +8,14 @@ namespace HelloWorld
         {
             int a = 20;
             int b = 30;
+            Console.WriteLine($"a: {a}, b: {b}");
 
+            int pom = a;
+            a = b;
+            b = pom;
 
             Console.WriteLine($"a: {a}, b: {b}");
 
-          
-
-            Console.WriteLine($"a: {b}, b: {a}");
 
         }
 
