@@ -6,12 +6,13 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Zadejte Vaše jméno");
+            // uzivatel an vstup zada teplotu ve st. F
+            // a program prevede a vypise teplotu ve st C
+            // metoda
+            // cteni z konzole, prevod na cislo
+            // C = (F - 32) / 1.8
 
-            var input = Console.ReadLine();
-
-            Console.WriteLine($"Hello {input}");
-           
+            TempCalcs.PrintAndConvertTemp();
 
         }
 
