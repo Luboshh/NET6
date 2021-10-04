@@ -12,10 +12,9 @@ namespace HelloWorld
 
             Console.WriteLine($"a: {a}, b: {b}");
 
-            var A = b;
-            var B = a;
+          
 
-            Console.WriteLine($"a: {A}, b: {B}");
+            Console.WriteLine($"a: {b}, b: {a}");
 
         }
 
