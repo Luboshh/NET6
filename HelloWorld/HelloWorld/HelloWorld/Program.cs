@@ -6,19 +6,32 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            int a = 20;
-            int b = 30;
-            Console.WriteLine($"a: {a}, b: {b}");
 
-            int pom = a;
-            a = b;
-            b = pom;
+            //napiste metodu která na vstupu dostane dve cela cisla a vrátí vetší z nich a pekně vytisknout
 
-            Console.WriteLine($"a: {a}, b: {b}");
+            const int c = 20300;
+            const int d = 20394;
 
+            var a = 24054;
+            var b = 20949;
+
+            if (a > b)
+            {
+                Console.WriteLine("A je větší");
+            }
+            else if (a == c)
+                Console.WriteLine("A je větší");
+            else if (a == d)
+                Console.WriteLine("A je větší");
+            else
+                Console.WriteLine("A není větší");
 
         }
 
+
+
+            
+        
 
     }
 }
