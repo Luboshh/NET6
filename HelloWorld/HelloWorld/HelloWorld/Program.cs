@@ -6,14 +6,10 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-
-            Person p1 = new Person();
-            p1.FirstName = "Adam";
-            p1.LastName = "Smith";
-            p1.Age = 30;
-
-            Console.WriteLine($"Osoba 1: {p1.GetFullName()}");
-
+            Point p1 = new Point("10.234", "234.3403");
+            Console.WriteLine($"Souřadnice GPS: {p1.GetFullGPS()}");
+            //Person p1 = new Person("Adam", "Smith", 30);
+            //Console.WriteLine($"Osoba 1: {p1.GetFullName()}");
         }
 
 
