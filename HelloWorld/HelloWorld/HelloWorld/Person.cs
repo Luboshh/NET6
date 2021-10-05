@@ -21,6 +21,8 @@ namespace HelloWorld
 
         public int Age { get; set; }
 
+        public Adress HomeAddress { get; set; }
+
         public string GetFullName()
         {
             return FirstName + " " + LastName;

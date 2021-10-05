@@ -7,11 +7,6 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            // array
-            int[] pole_intu = new[] { 5, 12, 155, -5268 };
-
-            // list
-            List<int> list_intu = new List<int>();
 
             List<Person> people = new List<Person>();
 
