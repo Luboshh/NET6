@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace HelloWorld
 {
@@ -8,20 +7,12 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            // načíst lidi ze souboru do listu
-            //a vypsat nactene lidi do konzole
+            // array
+            int[] pole_intu = new[] { 5, 12, 155, -5268 };
 
-            Console.WriteLine(ReadPeopleFromFile);
-        }
+            // list
+            List<int> list_intu = new List<int>();
 
-        static void ReadPeopleFromFile()
-        {
-            List<Person> people = new List<Person>()
-
-        }
-
-        private static void SavePeopleToFile()
-        {
             List<Person> people = new List<Person>();
 
             var p1 = new Person("Adam", "Smith", 44);
@@ -34,19 +25,15 @@ namespace HelloWorld
             people.Add(p3);
             people.Add(p4);
 
-            string file = "people.txt";
+            // vypiste vsechny osoby v listu people
 
             foreach (var p in people)
             {
-                // FirstName;LastName;Age
-                var personAsString =
-                    $"{p.FirstName};{p.LastName};{p.Age}{Environment.NewLine}";
-
-                File.AppendAllText(file, personAsString);
+                Console.WriteLine(p);
             }
 
-            Console.WriteLine($"ulozeno do souboru {file}");
         }
+
 
         static void PersonActions()
         {
