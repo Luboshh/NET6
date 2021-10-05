@@ -7,8 +7,6 @@ namespace HelloWorld
         static void Main(string[] args)
         {
             // úkol:
-            // uživatel zadá rok narození a program
-            // mu vypíše do jaké patří generace
             // metodu (switch case) která dostance na vstup
             // číslo 1 - 7 a vrátí název dne pondělí...neděle
 
@@ -16,7 +14,8 @@ namespace HelloWorld
             var dayname = GetDayName(daynumber);
             Console.WriteLine($"{daynumber}. den je {dayname}");
         }
-         static string GetDayName(int day)
+
+        static string GetDayName(int day)
         {
             switch (day)
             {
@@ -47,7 +46,22 @@ namespace HelloWorld
             }
         }
 
-        
+        static string GetGenerationName(int year)
+        {
+            if (year > 1946 && year <= 1964)
+                return "Baby Boomer";
+            else if (year >= 1965 && year <= 1980)
+                return "Gen X";
+            else if (year >= 1981 && year <= 1996)
+            {
+                return "Millenial";
+            }
+            else if (year >= 1997 && year <= 2012)
+                return "Gen Z";
+            else if (year >= 2013)
+                return "Gen Alpha";
+            else
+                return $"neznám název generace pro rok {year}";
+        }
     }
-
 }
