@@ -8,6 +8,12 @@ namespace HelloWorld
 {
     class Person
     {
+        public Person()
+        {
+
+
+        }
+
         public Person(string firstName, string lastName, int age)
         {
             FirstName = firstName;
@@ -19,9 +25,9 @@ namespace HelloWorld
            
         public string LastName { get; set; }
 
-        public int Age { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
-        public Adress HomeAddress { get; set; }
+        public Adress HomeAddress { get; set; } = new Adress();
 
         public string GetFullName()
         {
@@ -31,6 +37,11 @@ namespace HelloWorld
         public override string ToString()
         {
             return GetFullName();
+        }
+
+        public int Age()
+        {
+           return  DateTime.Now.Year - DateOfBirth.Year;
         }
 
 
