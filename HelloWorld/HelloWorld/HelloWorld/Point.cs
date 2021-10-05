@@ -8,21 +8,17 @@ namespace HelloWorld
 {
     class Point
     {
-
-        public Point(string X, string Y)
+        public Point(int x, int y)
         {
-            SouradniceX = X;
-            SouradniceY = Y;
-           
+            X = x;
+            Y = y;
         }
+        public int X { get; set; }
+        public int Y { get; set; }
 
-        public string SouradniceX { get; set; }
-
-        public string SouradniceY { get; set; }
-
-        public string GetFullGPS()
+        public override string ToString()
         {
-            return SouradniceX + " " + SouradniceY;
+            return $"[{X},{Y}]";
         }
     }
 }

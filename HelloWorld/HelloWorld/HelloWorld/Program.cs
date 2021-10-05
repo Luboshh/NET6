@@ -6,12 +6,29 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            var Souradnice1 = new Point("10.234", "234.3403");
-            Console.WriteLine($"Souřadnice GPS: {Souradnice1.GetFullGPS()}");
-            //Person p1 = new Person("Adam", "Smith", 30);
-            //Console.WriteLine($"Osoba 1: {p1.GetFullName()}");
+            var point = new Point(10, 20);
+
         }
 
+        static void PersonActions()
+        {
+            // ukol je vytvorit konstruktor pro Person
+            // ktery bere i vek
+
+            Person p1 = new Person("Adam", "Smith", 30);
+
+            Person alice = new Person("Alice", "Smith", 30);
+
+            Console.WriteLine($"osoba 1: {p1}");
+            Console.WriteLine($"osoba 2: {alice}");
+        }
+
+
+
+        private static int ReadNumber()
+        {
+            return int.Parse(Console.ReadLine());
+        }
 
 
     }
