@@ -2,12 +2,41 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Dataset;
+using Dataset.Model;
 
 namespace HelloWorld
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            //nacti klienty z XML
+            var clients = Data.LoadFromXML();
+
+            // 1. zjistěte jak se jmenuje nejstatrší klient a kolik má let
+            // 2. zjistěte jak se jmenuje nejmladší klient a kolik má let
+
+            Client nejstarsi = clients.OrderByDescending(c => c.Age()).First();
+
+            Console.WriteLine($"Nejstarší klient: {nejstarsi.FirstName} {nejstarsi.LastName}, věk: {nejstarsi.Age()}");
+
+            Client nejmladsi = clients.OrderBy(c => c.Age()).First();
+
+            Console.WriteLine($"Nejmladší klient: {nejmladsi.FirstName} {nejmladsi.LastName}, věk: {nejmladsi.Age()}");
+
+
+
+            //////vypis vsech
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+        }
+
+
+        private static void LINQ_ukoly_01()
         {
             int[] numbers = { -2079, -498, 2920, -1856, 332, -2549, -674, -120, -992, 2782, 320, -524, 135, 952, 1868, 2509, -230, -138, -904, -480 };
 
@@ -56,15 +85,29 @@ namespace HelloWorld
             /// 11. čísla v rozsahu -400 až 400
             var result = numbers.Where(x => x > -400 && x < 400);
 
+            var spojene = string.Join(", ", result);
+            Console.WriteLine("vysledek: " + spojene);
 
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+        }
 
-            foreach (var item in result)
+        private static void Clients()
+        {
+            //nacti klienty z XML
+            var clients = Data.LoadFromXML();
+
+            //pocet klientu
+            Console.WriteLine(clients.Count());
+
+            //vypis vsech
+            foreach (var item in clients)
             {
                 Console.WriteLine(item);
             }
-
         }
-
         static List<Person> LoadPeople(string file)
         {
             List<Person> people = new List<Person>();
@@ -132,9 +175,9 @@ namespace HelloWorld
 
         private static void Interfaces()
         {
-            INamed st = new Student() { Name = "Student Pepa" };
-            INamed teacher = new Teacher() { Name = "Učitel Marek" };
-            INamed person = new Person() { Name = "Osoba" };
+            Student st = new Student() { Name = "Student Pepa" };
+            Teacher teacher = new Teacher() { Name = "Učitel Marek" };
+            Person person = new Person() { Name = "Osoba" };
 
             PrintName(st);
             PrintName(teacher);
