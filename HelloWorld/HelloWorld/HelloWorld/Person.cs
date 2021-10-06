@@ -6,29 +6,35 @@ using System.Threading.Tasks;
 
 namespace HelloWorld
 {
-    class Person
+    class Person : INamed
     {
         public Person()
         {
-
-
+            HomeAddress = new Address();
         }
 
-        public Person(string firstName, string lastName, int age)
+        public Person(string firstName, string lastName) : this()
         {
             FirstName = firstName;
             LastName = lastName;
-            Age = age;
         }
 
+
         public string FirstName { get; set; }
-           
+
         public string LastName { get; set; }
 
         public DateTime DateOfBirth { get; set; }
 
-        public Adress HomeAddress { get; set; } = new Adress();
+        public Address HomeAddress { get; set; } = new Address();
+        public string Name { get => GetFullName(); set => FirstName = value; }
 
+        public void Print() => Console.WriteLine("person: " + GetFullName());
+        public int Age()
+        {
+            return DateTime.Now.Year - DateOfBirth.Year;
+
+        }
         public string GetFullName()
         {
             return FirstName + " " + LastName;
@@ -36,14 +42,7 @@ namespace HelloWorld
 
         public override string ToString()
         {
-            return GetFullName();
+            return GetFullName() + " " + HomeAddress.City;
         }
-
-        public int Age()
-        {
-           return  DateTime.Now.Year - DateOfBirth.Year;
-        }
-
-
     }
 }

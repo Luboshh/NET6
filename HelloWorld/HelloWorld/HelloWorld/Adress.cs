@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace HelloWorld
 {
-    class Adress
+    class Address
     {
+        public Address()
+        {
+
+        }
+        public Address(Address existing)
+        {
+            Street = existing.Street;
+            City = existing.City;
+        }
         public string Street { get; set; }
+
         public string City { get; set; }
-
-
-
     }
 }

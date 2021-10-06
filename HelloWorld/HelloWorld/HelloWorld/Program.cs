@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace HelloWorld
 {
@@ -7,42 +9,50 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            // array
-            int[] pole_intu = new[] { 5, 12, 155, -5268 };
+            int[] numbers = { -2079, -498, 2920, -1856, 332, -2549, -674, -120, -992, 2782, 320, -524, 135, 952, 1868, 2509, -230, -138, -904, -480 };
 
-            // list
-            List<int> list_intu = new List<int>();
+            /// z "numebers" zjistěte:
+            /// 1. počet prvků v poli
+            /// 2. největší hodnotu
+            /// 3. nejmenší hodnotu
+            /// 4. průměr
+            /// 5. kolik obsahuje pole kladných čísel
+            /// 6. kolik obsahuje pole záporných čísel
+            /// 7. sumu všech hodnot
+            /// 8. sumu kladných hodnot
 
-            List<Person> people = new List<Person>();
 
-            var p1 = new Person("Adam", "Smith", 44);
-            var p2 = new Person("Jane", "Doe", 54);
-            var p3 = new Person("Jan", "Novák", 34);
-            var p4 = new Person("Marie", "Dolejší", 27);
+            ////// projection / restrikce / filtrovani - Where
 
-            people.Add(p1);
-            people.Add(p2);
-            people.Add(p3);
-            people.Add(p4);
+            /// 9. všechna čísla větší než -500
+            /// 10. všechna kladná sudá čísla
+            /// 11. čísla v rozstahu -400 až 400
 
-            // vypiste vsechny osoby v listu people
 
-            foreach (var p in people)
-            {
-                Console.WriteLine(p);
-            }
-
+            //foreach (var item in ordered)
+            //{
+            //    Console.WriteLine(item);
+            //}
         }
 
-
-        static void PersonActions()
+        static List<Person> LoadPeople(string file)
         {
-            Person p1 = new Person("Adam", "Smith", 30);
+            List<Person> people = new List<Person>();
+            string[] lines = File.ReadAllLines(file);
 
-            Person alice = new Person("Alice", "Smith", 30);
+            foreach (var line in lines)
+            {
+                // FirstName;LastName;Age
+                string[] items = line.Split(';');
 
-            Console.WriteLine($"osoba 1: {p1}");
-            Console.WriteLine($"osoba 2: {alice}");
+                var first_name = items[0];
+                var last_name = items[1];
+                var age = int.Parse(items[2]);
+
+                var p = new Person(first_name, last_name);
+                people.Add(p);
+            }
+            return people;
         }
 
         static void TuplesAndExceptions()
@@ -88,6 +98,21 @@ namespace HelloWorld
         private static int ReadNumber()
         {
             return int.Parse(Console.ReadLine());
+        }
+
+        private static void Interfaces()
+        {
+            INamed st = new Student() { Name = "Student Pepa" };
+            INamed teacher = new Teacher() { Name = "Učitel Marek" };
+            INamed person = new Person() { Name = "Osoba" };
+
+            PrintName(st);
+            PrintName(teacher);
+            PrintName(person);
+        }
+        private static void PrintName(INamed item)
+        {
+            item.Print();
         }
 
     }
