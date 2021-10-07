@@ -1,0 +1,12 @@
+﻿@model Client
+
+@{
+    string nadrizeny = (string)(ViewData["boss"]);
+    DateTime date = (DateTime)ViewData["date"];
+}
+
+<h1>Informace o klientovi</h1>
+
+<p>jmeno klienta: @Model.Name</p>
+<p>nadrizeny: @nadrizeny</p>
+<p>rok @date.Year</p>

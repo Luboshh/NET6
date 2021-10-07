@@ -25,7 +25,8 @@ namespace HelloWorld
 
             Console.WriteLine($"Nejmladší klient: {nejmladsi.FirstName} {nejmladsi.LastName}, věk: {nejmladsi.Age()}");
 
-
+            // Nejpohatší člověk v každém městě
+            var NejbohatsiClovekVeMeste = clients.GroupBy(x => x.HomeAddress.City)
 
             //////vypis vsech
             //foreach (var item in result)
